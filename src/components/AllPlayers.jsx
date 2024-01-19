@@ -5,22 +5,32 @@ function AllPlayers() {
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        // Fetch players from API
-        fetch('https://fsa-puppy-bowl.herokuapp.com/api/2310-fsa-pt-web/')
-         .then(response => response.json())
-         .then(data => setPlayers(data.players));
+        fetch('https://fsa-puppy-bowl.herokuapp.com/api/2310-fsa-pt-web/players')
+            .then(response => response.json())
+            .then(data => {
+                // Assuming 'data' is an array of players
+                setPlayers(data);
+            })
+            .catch(error => console.error('Error fetching players:', error));
     }, []);
 
     const filteredPlayers = players.filter(player =>
         player.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    return filteredPlayers(
+    return (
         <div>
             <input type="text" placeholder="Search players" onChange={(e) => setSearchTerm(e.target.value)} />
-            {/* Render filteredPlayers */}
+            <div>
+                {filteredPlayers.map(player => (
+                    <div key={player.id}>
+                        <span>{player.name}</span>
+                        <button>See Details</button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
 
-export default AllPlayers
+export default AllPlayers;

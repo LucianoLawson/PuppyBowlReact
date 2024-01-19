@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import '../index.css'; // Ensure this contains relevant styles for the NavBar
 
-function nav() {
+function NavBar() {
     return (
         <nav>
             <ul>
@@ -8,7 +9,7 @@ function nav() {
                 <li><Link to='/players'>Players</Link></li>
             </ul>
         </nav>
-    )
+    );
 }
 
-export default nav
+export default NavBar;
