@@ -69,8 +69,8 @@ function NewPlayerForm() {
                 Player Status:
                 <input type="text" value={playerStatus} onChange={(e) => setPlayerStatus(e.target.value)} />
             </label>
-            <button type="submit">Create Player</button>
-            <button type="button" onClick={handleBackToHome}>Back to Home</button>
+            <button className="submit">Create Player</button>
+            <button className="button" onClick={handleBackToHome}>Back</button>
         </form>
     );
 }

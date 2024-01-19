@@ -60,8 +60,8 @@ function PlayerDetails() {
             <p>Breed: {player.breed}</p>
             <p>Status: {player.status}</p>
             {/* Add other player details as needed */}
-            <button onClick={handleBack} id="back-button">Back to Home</button>
-            <button onClick={handleDeletePlayer} id="delete-button">Delete Player</button>
+            <button className='details-btn' onClick={() => handleBack(player.id)}>Back</button>
+            <button className='delete-btn' onClick={() => handleDeletePlayer(player.id)}>Delete Player</button>
         </div>
     );
 }
